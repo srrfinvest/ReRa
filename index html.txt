@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SRRFINVEST | Wealth Creation & Financial Growth</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f8f9fb;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #0b5d1e;
+      --secondary: #ffd447;
+      --accent: #1d7af3;
+      --dark: #111;
+      --light: #fff;
+      --gradient: linear-gradient(135deg, #0b5d1e, #1d7af3);
+    }
+
+    header {
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .logo h2 {
+      color: var(--primary);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .menu {
+      display: flex;
+      gap: 25px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #222;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .menu a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      color: white;
+      padding: 120px 20px 60px;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 60px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .hero-text span {
+      color: var(--secondary);
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: #f1f1f1;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      border-radius: 40px;
+      border: none;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      background: white;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #111;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 25px;
+      padding: 40px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .hero-card img {
+      width: 180px;
+      display: block;
+      margin: auto;
+      margin-bottom: 25px;
+      border-radius: 50%;
+      background: white;
+      padding: 10px;
+    }
+
+    .hero-card h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .hero-card ul {
+      list-style: none;
+    }
+
+    .hero-card li {
+      margin-bottom: 14px;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 90px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: #555;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-content h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: var(--dark);
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+      line-height: 1.9;
+      color: #444;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .stat-box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-8px);
+    }
+
+    .stat-box h4 {
+      font-size: 40px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .services {
+      background: #ffffff;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: #f8f9fb;
+      border-radius: 25px;
+      padding: 35px;
+      transition: 0.4s ease;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      background: var(--gradient);
+      color: white;
+    }
+
+    .service-card h3 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .service-card p {
+      line-height: 1.8;
+    }
+
+    .mission {
+      background: var(--gradient);
+      color: white;
+      text-align: center;
+      border-radius: 40px;
+      padding: 70px 40px;
+    }
+
+    .mission h2 {
+      font-size: 42px;
+      margin-bottom: 25px;
+    }
+
+    .mission p {
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.9;
+      font-size: 18px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 25px;
+    }
+
+    .blog-content h3 {
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    .blog-content p {
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .contact {
+      background: #111;
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .contact-info h3 {
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      line-height: 1.9;
+      margin-bottom: 18px;
+      color: #ddd;
+    }
+
+    .contact-form {
+      background: rgba(255,255,255,0.08);
+      padding: 40px;
+      border-radius: 25px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: var(--secondary);
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: white;
+    }
+
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .arn-box {
+      background: #ffe082;
+      color: #111;
+      font-weight: 700;
+      padding: 15px;
+      border-radius: 14px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .social-links {
+      margin-top: 25px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      background: white;
+      color: black;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-5px);
+      background: var(--secondary);
+    }
+
+    @media(max-width: 900px) {
+      .hero-content,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      .section-title h2 {
+        font-size: 34px;
+      }
+
+      .menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <img src="SRRFINVEST.jpeg" alt="SRRFINVEST Logo">
+      <h2>SRRFINVEST</h2>
+    </div>
+
+    <div class="menu">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#mission">Mission</a>
+      <a href="#updates">Updates</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="hero-text">
+      <h1>Transform Your <span>Income</span> Into Long-Term Wealth</h1>
+
+      <p>
+        Welcome to SRRFINVEST — where experience, financial wisdom, and data-driven investment strategies come together to help individuals, NRIs, women, youngsters, and corporates create a strong financial corpus for the future.
+      </p>
+
+      <div class="btn-group">
+        <a href="#contact" class="btn btn-primary">Start Investing Today</a>
+        <a href="#services" class="btn btn-secondary">Explore Services</a>
+      </div>
+
+      <div class="arn-box">
+        SEBI / AMFI Registration ARN: 255028
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <img src="SRRFINVEST.jpeg" alt="SRRFINVEST">
+      <h3>Why Choose SRRFINVEST?</h3>
+
+      <ul>
+        <li>✔ 30+ Years Financial Industry Experience</li>
+        <li>✔ Personalized Goal-Based Planning</li>
+        <li>✔ Risk Profiling & Analytical Reviews</li>
+        <li>✔ Financial Literacy & Wealth Awareness</li>
+        <li>✔ Corpus Creation Strategies</li>
+        <li>✔ Pan India Digital Wealth Platform</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>About Rekha Rani</h2>
+      <p>
+        A financial mentor with deep-rooted industry experience dedicated to empowering investors through knowledge, planning, and wealth creation.
+      </p>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-content">
+        <h3>Three Decades of Financial Leadership</h3>
+
+        <p>
+          With over 3 decades of foundational experience at LIC Housing Finance Ltd, Rekha Rani has transitioned from managing major regional operations to guiding the next generation of investors toward smart and sustainable wealth creation.
+        </p>
+
+        <p>
+          Having worked across multiple leadership functions including Branch In-charge, subsidiary company HFL FSL, IT, Accounts & Audit, Project & Builder Liaison, Credit Monitoring, Business Development, Training, and Compliance, she brings a complete 360-degree understanding of finance, statutory compliance, and risk mitigation.
+        </p>
+
+        <p>
+          As a Financial Product Distributor (FPD) with Centricity Wealth Tech, the mission is to bridge the financial literacy gap and help individuals confidently move from a scarcity mindset toward an abundance mindset through timely investment decisions and disciplined wealth creation.
+        </p>
+      </div>
+
+      <div class="stats">
+        <div class="stat-box">
+          <h4>30+</h4>
+          <p>Years of Financial Experience</p>
+        </div>
+
+        <div class="stat-box">
+          <h4>360°</h4>
+          <p>Risk & Compliance Understanding</p>
+        </div>
+
+        <div class="stat-box">
+          <h4>India</h4>
+          <p>Pan-India Digital Wealth Support</p>
+        </div>
+
+        <div class="stat-box">
+          <h4>100%</h4>
+          <p>Goal-Based Financial Planning</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>What We Offer</h2>
+      <p>
+        SRRFINVEST focuses on helping individuals and businesses build long-term financial security through disciplined investing, risk analysis, and strategic planning.
+      </p>
+    </div>
+
+    <div class="service-grid">
+
+      <div class="service-card">
+        <h3>Personalized Wealth Planning</h3>
+        <p>
+          Customized financial plans designed around your life goals, future aspirations, and financial priorities.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <h3>Corpus Creation</h3>
+        <p>
+          Build long-term wealth systematically through disciplined investing and data-driven financial strategies.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <h3>Risk Profiling</h3>
+        <p>
+          Understand your investment personality and create balanced portfolios aligned with your comfort and growth goals.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <h3>Investment Guidance for NRIs</h3>
+        <p>
+          Smart investment opportunities and planning support specially designed for NRIs and global investors.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <h3>Corporate Financial Solutions</h3>
+        <p>
+          Strategic financial opportunities and structured wealth solutions for business owners and corporates.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <h3>Financial Literacy Programs</h3>
+        <p>
+          Awareness sessions for youngsters, women, and senior citizens to improve financial confidence and decision making.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="mission">
+  <div class="container">
+
+    <div class="mission">
+      <h2>Our Mission</h2>
+
+      <p>
+        At SRRFINVEST, we believe wealth creation is not only for experts or the wealthy. Everyone deserves financial confidence and the opportunity to create a secure future. Our mission is to motivate individuals to start investing early, stay disciplined, and build a meaningful corpus that supports long-term dreams, financial freedom, and generational wealth.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="updates">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Wealth Management Updates</h2>
+      <p>
+        This section can be updated regularly with investment tips, market updates, mutual fund awareness, SIP benefits, and financial education content.
+      </p>
+    </div>
+
+    <div class="blog-grid">
+
+      <div class="blog-card">
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop" alt="SIP Investment">
+
+        <div class="blog-content">
+          <h3>Why SIPs Create Long-Term Wealth</h3>
+          <p>
+            Systematic investments help build financial discipline and reduce market timing risks while creating wealth steadily.
+          </p>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Financial Growth">
+
+        <div class="blog-content">
+          <h3>Start Early, Retire Stress-Free</h3>
+          <p>
+            Early investing provides the power of compounding and helps build a stronger retirement corpus.
+          </p>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1200&auto=format&fit=crop" alt="Wealth Mindset">
+
+        <div class="blog-content">
+          <h3>Shift from Scarcity to Abundance</h3>
+          <p>
+            Wealth begins with mindset. Smart planning and disciplined investing create long-term abundance and confidence.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+
+    <div class="contact-grid">
+
+      <div class="contact-info">
+        <h3>Connect With SRRFINVEST</h3>
+
+        <p>
+          Take the first step toward your financial freedom and long-term corpus creation.
+        </p>
+
+        <p><strong>Name:</strong> Rekha Rani</p>
+        <p><strong>Phone:</strong> +91 8796270327</p>
+        <p><strong>Email:</strong> srrfinvest@gmail.com</p>
+        <p><strong>Instagram:</strong> @srrfinvest</p>
+
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/rekha-rani-srrfinvest/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BpKo%2FcqAbSX2O%2FnXynJGAtQ%3D%3D" target="_blank">LinkedIn</a>
+
+          <a href="https://www.facebook.com/re.ra.927/" target="_blank">Facebook</a>
+
+          <a href="https://www.instagram.com/srrfinvest" target="_blank">Instagram</a>
+        </div>
+
+        <div class="arn-box">
+          Mandatory ARN Disclosure: ARN - 255028
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea rows="6" placeholder="Write Your Message"></textarea>
+          <button type="submit">Submit Enquiry</button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>
+    © 2026 SRRFINVEST | Wealth Creation & Financial Growth | All Rights Reserved.
+  </p>
+
+  <p style="margin-top:10px; color:#bbb; max-width:900px; margin-inline:auto; line-height:1.8;">
+    Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing. Investments should be aligned with your financial goals and risk profile.
+  </p>
+</footer>
+
+</body>
+</html>
